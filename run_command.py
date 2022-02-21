@@ -5,7 +5,7 @@ class RunCommand:
     def __init__ (self, cmd):
         self.cmd = cmd
 
-    def do (self):
+    def run (self):
         with Popen (
                 self.cmd,
                 shell=True,
