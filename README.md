@@ -1,6 +1,6 @@
-# Examples of mocking Context Managers with pytest
+# Exemples of mocking Context Managers with pytest
 
-# Geeting the code 
+# Getting the code
 
 ```shell
 git clone https://github.com/rlaboiss/pytest-mock.git
