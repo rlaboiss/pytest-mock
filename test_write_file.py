@@ -11,7 +11,7 @@ def test_success():
 
 def test_failure():
     s = 'message'
-    wf = WriteFile('/tmp/foo/bar')
+    wf = WriteFile('/root/foo')
     ret = wf.write(s)
     assert ret == len(s)
 
@@ -20,6 +20,6 @@ def test_failure():
 def test_patch(open_mock: Mock):
     open_mock.return_value.__enter__.return_value.write.return_value = 0
     s = 'message'
-    wf = WriteFile('/tmp/foo/bar')
+    wf = WriteFile('/root/foo')
     ret = wf.write(s)
     assert ret == 0
