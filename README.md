@@ -4,6 +4,7 @@
 
 ```shell
 git clone https://github.com/rlaboiss/pytest-mock.git
+cd pytest-mock
 ```
 
 # Running the tests
