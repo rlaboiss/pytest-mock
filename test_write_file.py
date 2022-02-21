@@ -6,14 +6,14 @@ def test_success():
     s = 'message'
     wf = WriteFile('/tmp/foo')
     ret = wf.write(s)
-    assert ret == len (s)
+    assert ret == len(s)
 
 
 def test_failure():
     s = 'message'
     wf = WriteFile('/tmp/foo/bar')
     ret = wf.write(s)
-    assert ret == len (s)
+    assert ret == len(s)
 
 
 @patch('write_file.open')
