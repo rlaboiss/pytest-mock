@@ -1,4 +1,4 @@
-from subprocess import Popen, PIPE
+from subprocess import PIPE, Popen
 
 
 class RunCommand:
@@ -6,11 +6,6 @@ class RunCommand:
         self.cmd = cmd
 
     def run(self):
-        with Popen(
-                self.cmd,
-                shell=True,
-                stdout=PIPE,
-                stderr=PIPE
-        ) as proc:
+        with Popen(self.cmd, shell=True, stdout=PIPE, stderr=PIPE) as proc:
             proc.communicate()
             return proc.returncode
