@@ -30,8 +30,12 @@ def test_failure():
 ### manager created by the "with open()" call).
 @patch("write_file.open")
 def test_patch(open_mock: Mock):
-    open_mock.return_value.__enter__.return_value.write.return_value = 0
+    write_mock = open_mock.return_value.__enter__.return_value.write
+    write_mock.return_value = 0
+    f = "/root/foo"
+    wf = WriteFile(f)
     s = "message"
-    wf = WriteFile("/root/foo")
     ret = wf.write(s)
+    assert open_mock.call_args.args[0] == f
+    assert write_mock.call_args.args[0] == s
     assert ret == 0

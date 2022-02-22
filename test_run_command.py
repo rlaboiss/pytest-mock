@@ -29,6 +29,8 @@ def test_failure():
 @patch("run_command.Popen")
 def test_patch(popen_mock: Mock):
     popen_mock.return_value.__enter__.return_value.returncode = 0
-    rc = RunCommand("ls -l /etc/foo")
+    cmd = "ls -l /etc/foo"
+    rc = RunCommand(cmd)
     ret = rc.run()
+    assert popen_mock.call_args.args[0] == cmd
     assert ret == 0
